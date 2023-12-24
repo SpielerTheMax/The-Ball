@@ -38,14 +38,18 @@
         function Spawnpoint(){
             if(OnTop == SpawnTop && OnLeft == SpawnLeft){}
             else{
+                document.getElementById("Spawnsound").pause();
+                document.getElementById("Spawnsound").currentTime = 0;
                 document.getElementById("Spawnsound").play();
-            SpawnLeft = OnLeft;
-            SpawnTop = OnTop;
+                SpawnLeft = OnLeft;
+                SpawnTop = OnTop;
             }
         }
         function Reset(){
             if(SpawnLeft == OnLeft && SpawnTop == OnTop){}
             else{
+            document.getElementById("reset-sound").pause();
+            document.getElementById("reset-sound").currentTime = 0;
             document.getElementById("reset-sound").play();
             OnTop = SpawnTop;
             OnLeft = SpawnLeft;
@@ -59,6 +63,8 @@
             document.getElementById("Ball").style.marginTop = OnTop+"px";
             }
             else{
+                document.getElementById("WW").pause();
+                document.getElementById("WW").currentTime = 0;
                 document.getElementById("WW").play();
             }
         }
@@ -68,6 +74,8 @@
             document.getElementById("Ball").style.marginTop = OnTop+"px";
             }
             else{
+                document.getElementById("WW").pause();
+                document.getElementById("WW").currentTime = 0;
                 document.getElementById("WW").play();
             }
         }
@@ -77,6 +85,8 @@
             document.getElementById("Ball").style.marginLeft = OnLeft+"px";
             }
             else{
+                document.getElementById("WW").pause();
+                document.getElementById("WW").currentTime = 0;
                 document.getElementById("WW").play();
             }
         }
@@ -86,10 +96,14 @@
             document.getElementById("Ball").style.marginLeft = OnLeft+"px";
             }
             else{
+                document.getElementById("WW").pause();
+                document.getElementById("WW").currentTime = 0;
                 document.getElementById("WW").play();
             }
         }
         function Color(){
+            document.getElementById("BC").pause();
+            document.getElementById("BC").currentTime = 0;
             if(ColorRate == 1){
             document.getElementById("BC").play();
             document.getElementById("background").style.backgroundColor = "rgb(219, 219, 220)";
@@ -102,6 +116,8 @@
             }
         }
          function Skin(){
+            document.getElementById("WW").pause();
+            document.getElementById("WW").currentTime = 0;
             document.getElementById("WW").play();
             let ImageName = "";
             ImageName = "Ball (" + SkinNumber.toString() + ").png";
