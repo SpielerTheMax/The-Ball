@@ -1,38 +1,40 @@
-        let Steps = 0;
-        let ColorRate = 1;
-        let SkinNumber = 2;
-        let SpawnTop = 0;
-        let SpawnLeft = 0;
-        let OnTop = 0;
-        let OnLeft = 0;
-        const speed = 20;
+        let game = {
+            Steps: 0,
+            ColorRate: 1,
+            SkinNumber: 2,
+            SpawnTop: 0,
+            SpawnLeft: 0,
+            OnTop: 0,
+            OnLeft: 0,
+            speed: 20,
+        }
         function Spawnpoint(){
-            if(OnTop == SpawnTop && OnLeft == SpawnLeft){}
+            if(game.OnTop == game.SpawnTop && game.OnLeft == game.SpawnLeft){}
             else{
                 document.getElementById("Spawnsound").pause();
                 document.getElementById("Spawnsound").currentTime = 0;
                 document.getElementById("Spawnsound").play();
-                SpawnLeft = OnLeft;
-                SpawnTop = OnTop;
+                game.SpawnLeft = game.OnLeft;
+                game.SpawnTop = game.OnTop;
             }
         }
         function Reset(){
-            if(SpawnLeft == OnLeft && SpawnTop == OnTop){}
+            if(game.SpawnLeft == game.OnLeft && game.SpawnTop == game.OnTop){}
             else{
             document.getElementById("reset-sound").pause();
             document.getElementById("reset-sound").currentTime = 0;
             document.getElementById("reset-sound").play();
-            OnTop = SpawnTop;
-            OnLeft = SpawnLeft;
+            game.OnTop = game.SpawnTop;
+            game.OnLeft = game.SpawnLeft;
             document.getElementById("Ball").style.marginTop = OnTop+"px";
             document.getElementById("Ball").style.marginLeft = OnLeft+"px";
             }
         }
         function Up(){
-            if(OnTop>0){
-            Steps++;
-            OnTop = OnTop-speed;
-            document.getElementById("Ball").style.marginTop = OnTop+"px";
+            if(game.OnTop>0){
+            game.Steps++;
+            game.OnTop = game.OnTop-game.speed;
+            document.getElementById("Ball").style.marginTop = game.OnTop+"px";
             }
             else{
                 document.getElementById("WW").pause();
@@ -41,10 +43,10 @@
             }
         }
         function Down(){
-            if(OnTop<window.innerHeight-150){
-            Steps++;
-            OnTop = OnTop+speed;
-            document.getElementById("Ball").style.marginTop = OnTop+"px";
+            if(game.OnTop<window.innerHeight-150){
+            game.Steps++;
+            game.OnTop = game.OnTop+game.speed;
+            document.getElementById("Ball").style.marginTop = game.OnTop+"px";
             }
             else{
                 document.getElementById("WW").pause();
@@ -53,10 +55,10 @@
             }
         }
         function Left(){
-            if(OnLeft>0){
-            Steps++;
-            OnLeft = OnLeft-speed;
-            document.getElementById("Ball").style.marginLeft = OnLeft+"px";
+            if(game.OnLeft>0){
+            game.Steps++;
+            game.OnLeft = game.OnLeft-game.speed;
+            document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
             else{
                 document.getElementById("WW").pause();
@@ -65,10 +67,10 @@
             }
         }
         function Right(){
-            if(OnLeft<window.innerWidth-150){
-            Steps++;
-            OnLeft = OnLeft+speed;
-            document.getElementById("Ball").style.marginLeft = OnLeft+"px";
+            if(game.OnLeft<window.innerWidth-150){
+            game.Steps++;
+            game.OnLeft = game.OnLeft+game.speed;
+            document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
             else{
                 document.getElementById("WW").pause();
@@ -79,15 +81,15 @@
         function Color(){
             document.getElementById("BC").pause();
             document.getElementById("BC").currentTime = 0;
-            if(ColorRate == 1){
+            if(game.ColorRate == 1){
             document.getElementById("BC").play();
             document.getElementById("background").style.backgroundColor = "rgb(219, 219, 220)";
-            ColorRate = 0;
+            game.ColorRate = 0;
             }
             else{
                 document.getElementById("BC").play();
                 document.getElementById("background").style.backgroundColor = "rgb(43, 44, 49)";
-                ColorRate = 1;
+                game.ColorRate = 1;
             }
         }
          function Skin(){
@@ -95,13 +97,13 @@
             document.getElementById("CC").currentTime = 0;
             document.getElementById("CC").play();
             let ImageName = "";
-            ImageName = "Ball (" + SkinNumber.toString() + ").png";
+            ImageName = "Ball (" + game.SkinNumber.toString() + ").png";
             document.getElementById("Ball").src = ImageName;
-            if (SkinNumber > 6) SkinNumber = 1;
-            else SkinNumber++;
+            if (game.SkinNumber > 6) game.SkinNumber = 1;
+            else game.SkinNumber++;
         }
         function StepCounter(){
-            alert("You walked: "+Steps+" Steps")
+            alert("You walked: "+game.Steps+" Steps")
         }
         function SpecialColor(){
             let MyColorChange = prompt("Your Color.Like that: DarkBlue or that: rgb(0,0,153)");
