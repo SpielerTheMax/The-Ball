@@ -1,6 +1,8 @@
         let game = {
             Steps: 0,
             ColorRate: 1,
+            CNO: "rgb(219, 219, 220)",
+            CNT: "rgb(43, 44, 49)",
             SkinNumber: 2,
             SpawnTop: 0,
             SpawnLeft: 0,
@@ -83,12 +85,12 @@
             document.getElementById("BC").currentTime = 0;
             if(game.ColorRate == 1){
             document.getElementById("BC").play();
-            document.getElementById("background").style.backgroundColor = "rgb(219, 219, 220)";
+            document.getElementById("background").style.backgroundColor = game.CNO;
             game.ColorRate = 0;
             }
             else{
                 document.getElementById("BC").play();
-                document.getElementById("background").style.backgroundColor = "rgb(43, 44, 49)";
+                document.getElementById("background").style.backgroundColor = game.CNT;
                 game.ColorRate = 1;
             }
         }
@@ -107,10 +109,20 @@
         }
         function SpecialColor(){
             let MyColorChange = prompt("Your Color.Like that: DarkBlue or that: rgb(0,0,153)");
+            if(game.ColorRate == 1){
             document.getElementById("BC").pause();
             document.getElementById("BC").currentTime = 0;
             document.getElementById("BC").play();
+            game.CNT = MyColorChange;
             document.body.style.backgroundColor = MyColorChange;
+            }
+            else{
+            document.getElementById("BC").pause();
+            document.getElementById("BC").currentTime = 0;
+            document.getElementById("BC").play();
+            game.CNO = MyColorChange;
+            document.body.style.backgroundColor = MyColorChange;
+            }
         }
         function Controll(event){
             let key = event.key;
