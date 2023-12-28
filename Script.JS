@@ -26,8 +26,8 @@
             document.getElementById("reset-sound").play();
             game.OnTop = game.SpawnTop;
             game.OnLeft = game.SpawnLeft;
-            document.getElementById("Ball").style.marginTop = OnTop+"px";
-            document.getElementById("Ball").style.marginLeft = OnLeft+"px";
+            document.getElementById("Ball").style.marginTop = game.OnTop+"px";
+            document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
         }
         function Up(){
