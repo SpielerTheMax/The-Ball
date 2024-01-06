@@ -1,3 +1,6 @@
 body{
     background-color: rgb(43, 44, 49);
 }
+img{
+    position: absolute;
+}
