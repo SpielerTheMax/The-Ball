@@ -18,6 +18,8 @@
                 document.getElementById("Spawnsound").play();
                 game.SpawnLeft = game.OnLeft;
                 game.SpawnTop = game.OnTop;
+                document.getElementById("Spawnlocation").style.marginTop = game.OnTop+"px";
+                document.getElementById("Spawnlocation").style.marginLeft = game.OnLeft+"px";
             }
         }
         function Reset(){
