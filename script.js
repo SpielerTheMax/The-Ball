@@ -1,5 +1,9 @@
-        let game = {
-            Steps: 0,
+//Nach jeden Kommentar stehen die globalen Variablen mit Datentypen.
+
+/*Eine Variable die als JSON Objekt namens game deffiniert ist die alle globalen Variablen beinhaltet.
+(Steps*int, ColorRate*int, CNO/"Color Number One"*str, CNT/"Color Number Two"*str, SkinNumber*int SpawnTop*int, SpawnLeft*int, OnTop*int, OnLeft*int, speed*int)*/
+let game = {
+            steps: 0,
             ColorRate: 1,
             CNO: "rgb(219, 219, 220)",
             CNT: "rgb(43, 44, 49)",
@@ -10,6 +14,7 @@
             OnLeft: 0,
             speed: 20,
         }
+//Reset System verwendete Variablen: OnTop*int, OnLeft*int, SpawnTop*int, SpawnLeft*int
         function Spawnpoint(){
             if(game.OnTop == game.SpawnTop && game.OnLeft == game.SpawnLeft){}
             else{
@@ -34,9 +39,10 @@
             document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
         }
+//Bewegungs System verwendete Variablen: OnTop*int, OnLeft*int, speed*int, steps*int
         function Up(){
             if(game.OnTop>0){
-            game.Steps++;
+            game.steps++;
             game.OnTop = game.OnTop-game.speed;
             document.getElementById("Ball").style.marginTop = game.OnTop+"px";
             }
@@ -48,7 +54,7 @@
         }
         function Down(){
             if(game.OnTop<window.innerHeight-150){
-            game.Steps++;
+            game.steps++;
             game.OnTop = game.OnTop+game.speed;
             document.getElementById("Ball").style.marginTop = game.OnTop+"px";
             }
@@ -60,7 +66,7 @@
         }
         function Left(){
             if(game.OnLeft>0){
-            game.Steps++;
+            game.steps++;
             game.OnLeft = game.OnLeft-game.speed;
             document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
@@ -72,7 +78,7 @@
         }
         function Right(){
             if(game.OnLeft<window.innerWidth-150){
-            game.Steps++;
+            game.steps++;
             game.OnLeft = game.OnLeft+game.speed;
             document.getElementById("Ball").style.marginLeft = game.OnLeft+"px";
             }
@@ -82,6 +88,7 @@
                 document.getElementById("WW").play();
             }
         }
+//Color System verwendete Variablen: ColorRate*int, SkinNumber*int, CNO/"Color Number One"*str, CNT/"Color Number Two"*str
         function Color(){
             document.getElementById("BC").pause();
             document.getElementById("BC").currentTime = 0;
@@ -106,9 +113,6 @@
             if (game.SkinNumber > 6) game.SkinNumber = 1;
             else game.SkinNumber++;
         }
-        function StepCounter(){
-            alert("You walked: "+game.Steps+" Steps")
-        }
         function SpecialColor(){
             let MyColorChange = prompt("Your Color.Like that: DarkBlue or that: rgb(0,0,153)");
             if(game.ColorRate == 1){
@@ -126,6 +130,11 @@
             document.body.style.backgroundColor = MyColorChange;
             }
         }
+//Step View System verwendete Variablen: steps*int
+        function StepCounter(){
+            alert("You walked: "+game.steps+" Steps")
+        }
+//Key System
         function Controll(event){
             let key = event.key;
             key = key.toUpperCase();
